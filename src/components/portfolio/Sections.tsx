@@ -330,19 +330,19 @@ export function Differentials() {
 /* ============ TESTIMONIALS ============ */
 const quotes = [
   {
-    q: "Entregou um sistema em 6 semanas que dois times não conseguiram em 6 meses. Craft de outro nível.",
-    n: "Ana Ribeiro",
-    r: "Head of Product · Fintech",
+    q: "A clínica tem 26 anos, mas online parecia nova. Em poucas semanas o Matheus entregou um site que passa credibilidade de verdade. Os clientes já chegam dizendo que nos encontraram no Google.",
+    n: "Dra. Kelly",
+    r: "Proprietária · ViraLata Clínica Veterinária",
   },
   {
-    q: "É raro encontrar alguém que domina engenharia, design e produto na mesma medida. O Matheus consegue.",
-    n: "Rafael Mendes",
-    r: "CTO · SaaS B2B",
+    q: "Eu controlava tudo em planilha e não estava mais funcionando. O sistema ficou exatamente do jeito que precisava: PDV, caixa e financeiro em uma tela só. Simples de usar e pronto para o dia a dia.",
+    n: "Roberto Faria",
+    r: "Proprietário · Vexora PDV",
   },
   {
-    q: "As integrações de IA que ele construiu multiplicaram nossa produtividade. Muito além do esperado.",
-    n: "Juliana Costa",
-    r: "Founder · Startup de IA",
+    q: "Antes eu usava três ferramentas diferentes para agenda, pacientes e financeiro. Agora está tudo no mesmo lugar. Ainda consigo acompanhar a clínica pelo celular quando estou fora.",
+    n: "Dra. Patricia Lemos",
+    r: "Diretora · Nexora Platform",
   },
 ];
 

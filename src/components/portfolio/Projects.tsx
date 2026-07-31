@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal, SectionHeader } from "./Section";
-import { ArrowUpRight, Github, ExternalLink, X } from "lucide-react";
-import autoorderImg from "@/assets/project-1.jpg";
-import stockmindImg from "@/assets/project-2.jpg";
-import vexoraImg from "@/assets/project-3.jpg";
-import nutriaiImg from "@/assets/project-4.jpg";
-import nexoraImg from "@/assets/project-4.jpg"; // TODO: trocar pelo screenshot real do Nexora quando tiver
+import { ArrowUpRight, ExternalLink, X } from "lucide-react";
+import autoorderImg from "@/assets/project-1.png";
+import stockmindImg from "@/assets/project-2.png";
+import vexoraImg from "@/assets/project-3.png";
+import nutriaiImg from "@/assets/project-4.png";
+import nexoraImg from "@/assets/project-5.png";
+import viralataImg from "@/assets/project-6.png";
 
 type Project = {
   title: string;
   tag: string;
   image: string;
+  link: string;
   description: string;
   problem: string;
   architecture: string;
@@ -26,6 +28,7 @@ const projects: Project[] = [
     title: "AutoOrder",
     tag: "B2B · IA",
     image: autoorderImg,
+    link: "https://portifolio-autoorder.vercel.app/",
     featured: true,
     description: "Motor que transforma pedidos desestruturados (WhatsApp, texto livre) em pedidos validados prontos para aprovação.",
     problem: "Distribuidoras B2B recebem pedidos em formatos caóticos e faturistas gastam minutos digitando cada um manualmente no ERP.",
@@ -38,6 +41,7 @@ const projects: Project[] = [
     title: "StockMind",
     tag: "IA · Varejo",
     image: stockmindImg,
+    link: "https://portifolio-stock-mind.vercel.app/login",
     description: "Copiloto de decisão para redes de farmácia: prevê demanda e recomenda o que comprar antes que falte ou sobre estoque.",
     problem: "ERPs tradicionais só mostram o estoque atual — farmácias perdem vendas por ruptura e capital preso em excesso parado.",
     architecture: "Backend em Java/Spring Boot, motor de previsão em Python (Prophet + Scikit-learn) comunicando via RabbitMQ, PostgreSQL, Redis para cache dos KPIs e frontend em Next.js.",
@@ -49,6 +53,7 @@ const projects: Project[] = [
     title: "Vexora — PDV Template",
     tag: "SaaS · Varejo",
     image: vexoraImg,
+    link: "https://portifolio-vexora.vercel.app/login",
     description: "Template white-label de sistema de gestão para varejo, com PDV, financeiro e controle de caixa prontos para configurar por cliente.",
     problem: "Pequenos varejistas precisam de um PDV com controle financeiro real, sem pagar por um sistema genérico caro e engessado.",
     architecture: "TanStack Start (React 19) + Tailwind + shadcn/ui no frontend, Supabase (PostgreSQL + Auth) como backend, deploy em Cloudflare Workers.",
@@ -60,6 +65,7 @@ const projects: Project[] = [
     title: "NutriAI",
     tag: "SaaS · Saúde",
     image: nutriaiImg,
+    link: "https://portifolio-nutri-ia.vercel.app/",
     featured: true,
     description: "Plataforma para nutricionistas gerarem planos alimentares personalizados combinando cálculo clínico e IA.",
     problem: "Montar um plano alimentar manualmente é lento e depende só da experiência do profissional, sem padronização.",
@@ -72,12 +78,25 @@ const projects: Project[] = [
     title: "Nexora Platform",
     tag: "SaaS · Gestão",
     image: nexoraImg,
+    link: "https://portifolio-nexora.vercel.app/",
     description: "Plataforma de gestão para clínicas — agendamentos, pacientes e financeiro em um só lugar.",
     problem: "Clínicas pequenas gerenciam agenda, pacientes e financeiro em planilhas ou sistemas separados que não conversam entre si.",
     architecture: "TanStack Start + Supabase (PostgreSQL + Auth com Row Level Security), com integração via WhatsApp para lembretes de consulta.",
     challenges: "Isolar os dados de cada clínica com segurança (RLS) mantendo a experiência simples para quem não é técnico.",
     results: "Agendamento, pacientes, financeiro completo (contas a pagar/receber, plano de contas) e autenticação multiusuário funcionando integrados.",
     tech: ["TanStack Start", "Supabase", "PostgreSQL", "WhatsApp API"],
+  },
+  {
+    title: "ViraLata — Clínica Veterinária",
+    tag: "Freelance · Veterinária",
+    image: viralataImg,
+    link: "https://vira-lata.vercel.app",
+    description: "Landing page institucional para uma clínica veterinária 24h com 26 anos de história em Mogi Guaçu/SP, com SEO técnico completo e animações.",
+    problem: "Clínica com 26 anos de história não tinha presença digital profissional que transmitisse credibilidade e facilitasse o contato 24h com os tutores.",
+    architecture: "React 19 + TanStack Start (SSR com head management por rota), TanStack Router, Tailwind CSS v4, Framer Motion para animações e Lenis para smooth scroll. Componentes base via shadcn/ui + Radix UI. Deploy na Vercel.",
+    challenges: "Implementar SEO técnico completo (Schema.org VeterinaryCare, Open Graph, Twitter Card, canonical) integrado ao SSR do TanStack Start, garantindo que cada seção fosse indexável e acessível.",
+    results: "Landing page em produção com todas as seções de conversão (serviços, diferenciais, equipe, galeria, mapa, CTA), SEO técnico e Lighthouse score alto.",
+    tech: ["React 19", "TanStack Start", "Tailwind CSS v4", "Framer Motion", "Radix UI"],
   },
 ];
 
@@ -120,7 +139,7 @@ export function Projects() {
                 </div>
                 <div className="relative h-full flex flex-col justify-between p-6">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[11px] uppercase tracking-widest text-muted-foreground">
+                    <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] uppercase tracking-widest text-foreground/90 bg-background/60 backdrop-blur-md border border-white/10">
                       <span className="h-1 w-1 rounded-full bg-accent" /> {p.tag}
                     </span>
                     <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
@@ -159,6 +178,7 @@ export function Projects() {
               exit={{ opacity: 0, y: 20, scale: 0.98 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-strong rounded-3xl"
+              data-lenis-prevent
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -199,11 +219,8 @@ export function Projects() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <a href="#" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-primary to-accent px-5 py-2.5 text-sm font-medium text-primary-foreground glow-violet">
+                  <a href={open.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-primary to-accent px-5 py-2.5 text-sm font-medium text-primary-foreground glow-violet">
                     <ExternalLink className="h-4 w-4" /> Ver Demo
-                  </a>
-                  <a href="#" className="inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-medium hover:bg-white/5">
-                    <Github className="h-4 w-4" /> Código no GitHub
                   </a>
                 </div>
               </div>

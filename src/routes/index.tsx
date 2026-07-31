@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   useSmoothScroll();
   return (
-    <main className="relative min-h-screen bg-background text-foreground overflow-hidden">
+    <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
       <Cursor />
       <Navbar />
       <Hero />

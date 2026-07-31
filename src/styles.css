@@ -199,3 +199,30 @@
 @media (max-width: 768px) {
   .cursor-dot, .cursor-ring { display: none; }
 }
+
+/* Modal scrollbar */
+[data-lenis-prevent]::-webkit-scrollbar {
+  width: 4px;
+}
+[data-lenis-prevent]::-webkit-scrollbar-track {
+  background: transparent;
+}
+[data-lenis-prevent]::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.62 0.24 295 / 0.6),
+    oklch(0.82 0.15 200 / 0.4)
+  );
+  border-radius: 9999px;
+}
+[data-lenis-prevent]::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.62 0.24 295 / 0.9),
+    oklch(0.82 0.15 200 / 0.7)
+  );
+}
+[data-lenis-prevent] {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.62 0.24 295 / 0.5) transparent;
+}
