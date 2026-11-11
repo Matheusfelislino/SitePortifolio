@@ -132,7 +132,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
-          Aberto a projetos e oportunidades · 2026
+          Aberto a estágio e júnior · 2026
         </motion.div>
 
         <motion.h1
@@ -145,7 +145,7 @@ export function Hero() {
           <span className="block text-foreground/95">Matheus</span>
           <span className="block text-gradient">Felis</span>
           <span className="block text-2xl sm:text-3xl lg:text-4xl mt-4 text-muted-foreground font-normal tracking-tight">
-            Desenvolvedor Full-Stack em formação, com foco em IA
+            Desenvolvedor Java e Spring Boot, com front em React e TypeScript
           </span>
         </motion.h1>
 
@@ -156,11 +156,8 @@ export function Hero() {
           custom={2}
           className="mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed"
         >
-          Estudante de Sistemas de Informação construindo produtos que unem{" "}
-          <span className="text-foreground">design cuidado</span>,{" "}
-          <span className="text-foreground">código bem estruturado</span> e{" "}
-          <span className="text-foreground">inteligência artificial</span> aprendendo rápido e
-          entregando com qualidade real.
+          Estudante de Sistemas de Informação na PUC-Campinas. No estágio no Grupo Germano, coloquei em
+          produção um PDV e um sistema de gestão de clínicas e integrei bancos e NFe a um ERP.
         </motion.p>
 
           <motion.div
