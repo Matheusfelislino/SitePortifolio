@@ -4,7 +4,7 @@ import avatar from "@/assets/avatar.jpg";
 import { motion, useInView } from "framer-motion";
 import {
   Code2, Cpu, Database, Cloud, Sparkles, GitBranch, Wrench,
-  Rocket, Shield, Zap, Layers, Palette, Github, Linkedin, Mail, Send,
+  Rocket, Shield, Zap, Layers, Palette, Github, Linkedin, Mail,
   MessageCircle, ArrowUpRight, CheckCircle2,
 } from "lucide-react";
 
@@ -60,8 +60,8 @@ export function About() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               {[
-                { icon: Rocket, title: "Arquitetura", text: "Construção de sistemas escaláveis utilizando princípios de Clean Architecture, DDD e microsserviços quando necessário." },
-                { icon: Sparkles, title: "Inteligência Artificial", text: "Integração com OpenAI, Gemini, RAG, MCP Servers, agentes autônomos e automações inteligentes." },
+                { icon: Rocket, title: "Arquitetura", text: "Código organizado em módulos por responsabilidade, mensageria com RabbitMQ e cache com Redis." },
+                { icon: Sparkles, title: "Inteligência Artificial", text: "Integração com as APIs da OpenAI e do Claude, RAG e MCP Servers, além de automações com N8N." },
                 { icon: Palette, title: "Backend", text: "APIs REST, autenticação, bancos relacionais, mensageria, filas, cache e processamento assíncrono." },
                 { icon: Shield, title: "Frontend", text: "Interfaces modernas utilizando React, Next.js, TypeScript, TailwindCSS, Framer Motion e animações 3D." },
               ].map((c, i) => (
@@ -155,13 +155,13 @@ const techGroups = [
   },
   {
     icon: Cloud,
-    cat: "Cloud & DevOps",
-    items: ["Docker", "AWS", "GitHub Actions", "CI/CD"],
+    cat: "DevOps & Qualidade",
+    items: ["Docker", "Git e GitHub", "CI/CD", "Testes automatizados"],
   },
   {
     icon: Sparkles,
     cat: "Inteligência Artificial",
-    items: ["OpenAI", "Gemini", "LangChain", "RAG", "MCP", "Agentes"],
+    items: ["OpenAI", "Claude", "RAG", "MCP"],
   },
 ];
 
@@ -218,34 +218,29 @@ const timeline = [
     text: "Descobri programação em Python e não parei mais virou obsessão por resolver problemas com lógica.",
   },
   {
-    year: "2022",
-    title: "Fundamentos sólidos",
-    text: "Aprofundei lógica de programação e estrutura de dados a base técnica que uso até hoje.",
-  },
-  {
     year: "2024",
-    title: "Sistemas de Informação PUC Campinas",
+    title: "Sistemas de Informação PUC-Campinas",
     text: "Entrei na faculdade para formalizar o que já vinha construindo sozinho e acelerar o crescimento técnico.",
   },
   {
     year: "2024",
-    title: "Primeiros produtos em equipe",
-    text: "Liderei projetos universitários reais, unindo código, design e prazo com um time.",
+    title: "Estágio de TI na Champion Log",
+    text: "De agosto de 2024 a janeiro de 2025: suporte técnico aos colaboradores e relatórios em Power BI com dados operacionais.",
   },
   {
     year: "2025",
-    title: "Mergulho em IA generativa",
-    text: "Comecei a construir agentes autônomos, RAG e produtos com LLMs da teoria direto pra produção.",
+    title: "Estágio de desenvolvimento no Grupo Germano",
+    text: "De fevereiro de 2025 a outubro de 2026: ERP com Java e Spring Boot, emissão de NFe, integrações bancárias e um PDV e um sistema de clínicas em produção.",
   },
   {
     year: "2025",
-    title: "Arquiteto de soluções",
-    text: "Passei a projetar sistemas em produção com milhares de usuários simultâneos, com foco em performance e escala.",
+    title: "Projetos próprios com IA",
+    text: "AutoOrder, StockMind e NutriAI: sistemas com LLMs, RAG e MCP, mensageria e previsão de demanda.",
   },
   {
     year: "2026",
     title: "Próximo capítulo",
-    text: "Construir uma startup de produto com IA aplicada no centro transformar o que aprendi em impacto real.",
+    text: "Uma vaga de estágio ou júnior em back-end Java ou full stack.",
   },
 ];
 
@@ -327,57 +322,6 @@ export function Differentials() {
   );
 }
 
-/* ============ TESTIMONIALS ============ */
-const quotes = [
-  {
-    q: "A clínica tem 26 anos, mas online parecia nova. Em poucas semanas o Matheus entregou um site que passa credibilidade de verdade. Os clientes já chegam dizendo que nos encontraram no Google.",
-    n: "Dra. Kelly",
-    r: "Proprietária · ViraLata Clínica Veterinária",
-  },
-  {
-    q: "Eu controlava tudo em planilha e não estava mais funcionando. O sistema ficou exatamente do jeito que precisava: PDV, caixa e financeiro em uma tela só. Simples de usar e pronto para o dia a dia.",
-    n: "Roberto Faria",
-    r: "Proprietário · Vexora PDV",
-  },
-  {
-    q: "Antes eu usava três ferramentas diferentes para agenda, pacientes e financeiro. Agora está tudo no mesmo lugar. Ainda consigo acompanhar a clínica pelo celular quando estou fora.",
-    n: "Dra. Patricia Lemos",
-    r: "Diretora · Nexora Platform",
-  },
-];
-
-export function Testimonials() {
-  return (
-    <section className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionHeader
-          eyebrow="Depoimentos"
-          title={<>Palavras de quem <span className="text-gradient">confia</span> no meu trabalho.</>}
-        />
-        <div className="grid md:grid-cols-3 gap-5">
-          {quotes.map((q, i) => (
-            <Reveal key={q.n} delay={i * 0.08}>
-              <figure className="group relative glass rounded-2xl p-7 h-full hover:-translate-y-1 transition-all duration-500 overflow-hidden">
-                <div className="absolute -top-8 -left-4 font-display text-[140px] leading-none text-primary/10 select-none">"</div>
-                <blockquote className="relative text-foreground/90 leading-relaxed">
-                  {q.q}
-                </blockquote>
-                <figcaption className="relative mt-6 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-accent" />
-                  <div>
-                    <div className="text-sm font-medium">{q.n}</div>
-                    <div className="text-xs text-muted-foreground">{q.r}</div>
-                  </div>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ============ CONTACT + FOOTER ============ */
 export function Contact() {
   return (
@@ -394,18 +338,18 @@ export function Contact() {
                 <span className="h-1 w-1 rounded-full bg-accent" /> Contato
               </div>
               <h2 className="mt-5 font-display text-4xl sm:text-5xl font-semibold leading-[1.05]">
-                Vamos construir algo <span className="text-gradient">inesquecível</span>.
+                Vamos <span className="text-gradient">conversar</span>.
               </h2>
               <p className="mt-5 text-muted-foreground max-w-md leading-relaxed">
-                Estou aberto a projetos freelance, colaborações de longo prazo e conversas sobre
-                produtos com IA. Responderei em até 24 horas.
+                Estou buscando estágio ou vaga júnior em back-end Java ou full stack, e também aceito
+                projetos freelance. Respondo em até 24 horas.
               </p>
 
               <div className="mt-8 space-y-3">
                 {[
                   { icon: Mail, label: "mfelislino@gmail.com", href: "mailto:mfelislino@gmail.com" },
-                  { icon: Github, label: "github.com/matheusfelislino", href: "https://github.com/matheusfelislino" },
-                  { icon: Linkedin, label: "linkedin.com/in/matheusfelislino", href: "https://www.linkedin.com/in/matheus-felis-lino" },
+                  { icon: Github, label: "github.com/Matheusfelislino", href: "https://github.com/Matheusfelislino" },
+                  { icon: Linkedin, label: "linkedin.com/in/matheus-felis-lino", href: "https://www.linkedin.com/in/matheus-felis-lino" },
                   { icon: MessageCircle, label: "WhatsApp direto", href: "https://wa.me/5519994439440" },
                 ].map((c) => (
                   <a
@@ -425,45 +369,25 @@ export function Contact() {
               </div>
             </div>
 
-            <form
-              onSubmit={(e) => { e.preventDefault(); alert("Mensagem enviada — obrigado!"); }}
-              className="glass rounded-2xl p-6 sm:p-7 space-y-4"
-            >
-              <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Nome</label>
-                <input
-                  required
-                  className="mt-1.5 w-full bg-transparent border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="Como devo te chamar?"
-                />
+            <div className="glass rounded-2xl p-6 sm:p-7 flex flex-col justify-center gap-5">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 border border-white/10">
+                <MessageCircle className="h-6 w-6 text-accent" />
               </div>
-              <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Email</label>
-                <input
-                  type="email"
-                  required
-                  className="mt-1.5 w-full bg-transparent border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="voce@empresa.com"
-                />
-              </div>
-              <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Mensagem</label>
-                <textarea
-                  required
-                  rows={5}
-                  className="mt-1.5 w-full bg-transparent border border-white/10 rounded-xl px-4 py-3 text-sm resize-none focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="Conte um pouco sobre o projeto…"
-                />
-              </div>
-              <button
-                type="submit"
+              <h3 className="font-display text-2xl font-semibold">Prefere conversar agora?</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Me chama no WhatsApp. É o jeito mais rápido de falar comigo sobre uma vaga ou um projeto.
+              </p>
+              <a
+                href="https://wa.me/5519994439440?text=Ol%C3%A1%2C%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
+                target="_blank"
+                rel="noreferrer"
                 className="group relative w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-primary via-primary to-accent px-6 py-3 text-sm font-medium text-primary-foreground glow-violet overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <Send className="h-4 w-4" />
-                Enviar mensagem
-              </button>
-            </form>
+                <MessageCircle className="h-4 w-4" />
+                Chamar no WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -483,10 +407,17 @@ export function Footer() {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            {[Github, Linkedin, Mail].map((I, i) => (
+            {[
+              { I: Github, href: "https://github.com/Matheusfelislino", label: "GitHub" },
+              { I: Linkedin, href: "https://www.linkedin.com/in/matheus-felis-lino", label: "LinkedIn" },
+              { I: Mail, href: "mailto:mfelislino@gmail.com", label: "E-mail" },
+            ].map(({ I, href, label }) => (
               <a
-                key={i}
-                href="#"
+                key={label}
+                href={href}
+                aria-label={label}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full glass hover:bg-white/10 hover:-translate-y-0.5 transition-all"
               >
                 <I className="h-4 w-4 text-muted-foreground" />

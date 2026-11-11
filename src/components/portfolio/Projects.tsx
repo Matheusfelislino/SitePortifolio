@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal, SectionHeader } from "./Section";
-import { ArrowUpRight, ExternalLink, X } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github, X } from "lucide-react";
 import autoorderImg from "@/assets/project-1.png";
 import stockmindImg from "@/assets/project-2.png";
 import vexoraImg from "@/assets/project-3.png";
@@ -14,6 +14,7 @@ type Project = {
   tag: string;
   image: string;
   link: string;
+  code?: string;
   description: string;
   problem: string;
   architecture: string;
@@ -29,6 +30,7 @@ const projects: Project[] = [
     tag: "B2B · IA",
     image: autoorderImg,
     link: "https://portifolio-autoorder.vercel.app/",
+    code: "https://github.com/Matheusfelislino/AUTOORDER",
     featured: true,
     description: "Motor que transforma pedidos desestruturados (WhatsApp, texto livre) em pedidos validados prontos para aprovação.",
     problem: "Distribuidoras B2B recebem pedidos em formatos caóticos e faturistas gastam minutos digitando cada um manualmente no ERP.",
@@ -39,7 +41,7 @@ const projects: Project[] = [
   },
   {
     title: "StockMind",
-    tag: "IA · Varejo",
+    tag: "IA · Varejo · Em desenvolvimento",
     image: stockmindImg,
     link: "https://portifolio-stock-mind.vercel.app/login",
     description: "Copiloto de decisão para redes de farmácia: prevê demanda e recomenda o que comprar antes que falte ou sobre estoque.",
@@ -51,7 +53,7 @@ const projects: Project[] = [
   },
   {
     title: "Vexora — PDV Template",
-    tag: "SaaS · Varejo",
+    tag: "Template · Varejo",
     image: vexoraImg,
     link: "https://portifolio-vexora.vercel.app/login",
     description: "Template white-label de sistema de gestão para varejo, com PDV, financeiro e controle de caixa prontos para configurar por cliente.",
@@ -63,7 +65,7 @@ const projects: Project[] = [
   },
   {
     title: "NutriAI",
-    tag: "SaaS · Saúde",
+    tag: "Projeto acadêmico · Saúde",
     image: nutriaiImg,
     link: "https://portifolio-nutri-ia.vercel.app/",
     featured: true,
@@ -76,7 +78,7 @@ const projects: Project[] = [
   },
   {
     title: "Nexora Platform",
-    tag: "SaaS · Gestão",
+    tag: "Template · Gestão",
     image: nexoraImg,
     link: "https://portifolio-nexora.vercel.app/",
     description: "Plataforma de gestão para clínicas — agendamentos, pacientes e financeiro em um só lugar.",
@@ -95,7 +97,7 @@ const projects: Project[] = [
     problem: "Clínica com 26 anos de história não tinha presença digital profissional que transmitisse credibilidade e facilitasse o contato 24h com os tutores.",
     architecture: "React 19 + TanStack Start (SSR com head management por rota), TanStack Router, Tailwind CSS v4, Framer Motion para animações e Lenis para smooth scroll. Componentes base via shadcn/ui + Radix UI. Deploy na Vercel.",
     challenges: "Implementar SEO técnico completo (Schema.org VeterinaryCare, Open Graph, Twitter Card, canonical) integrado ao SSR do TanStack Start, garantindo que cada seção fosse indexável e acessível.",
-    results: "Landing page em produção com todas as seções de conversão (serviços, diferenciais, equipe, galeria, mapa, CTA), SEO técnico e Lighthouse score alto.",
+    results: "Landing page em produção com todas as seções de conversão (serviços, diferenciais, equipe, galeria, mapa, CTA) e SEO técnico.",
     tech: ["React 19", "TanStack Start", "Tailwind CSS v4", "Framer Motion", "Radix UI"],
   },
 ];
@@ -222,6 +224,11 @@ export function Projects() {
                   <a href={open.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-primary to-accent px-5 py-2.5 text-sm font-medium text-primary-foreground glow-violet">
                     <ExternalLink className="h-4 w-4" /> Ver Demo
                   </a>
+                  {open.code && (
+                    <a href={open.code} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 text-sm font-medium text-foreground hover:bg-white/5 transition-colors">
+                      <Github className="h-4 w-4" /> Ver código
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
